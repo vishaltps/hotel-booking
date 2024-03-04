@@ -27,7 +27,7 @@ const App: React.FC<AppProps> = ({ userId }) => {
 
   const handleNewBookingClick = (): void => {
     setBookingFormVisibility(true);
-    setSelectedBooking(null); // Reset selectedBooking when creating a new booking
+    setSelectedBooking(null);
   };
 
   const handleEditBookingClick = (booking: Booking): void => {
@@ -40,11 +40,9 @@ const App: React.FC<AppProps> = ({ userId }) => {
       const response = await axios.delete(`http://localhost:3000/api/v1/users/${userId}/bookings/${bookingId}`);
       console.log('Booking removed. API Response:', response.data);
 
-      // Update the state to reflect the removal
       setBookings((prevBookings) => prevBookings.filter((booking) => booking.id !== bookingId));
     } catch (error) {
       console.error('Error removing booking:', error);
-      // Handle error, show message to the user, etc.
     }
   };
 

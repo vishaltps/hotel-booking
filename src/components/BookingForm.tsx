@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 interface BookingFormProps {
   onSubmit: (formData: FormData) => void;
-  bookingId?: number; // Optional prop to pass the booking ID for updating
+  bookingId?: number;
   userId: number;
 }
 
